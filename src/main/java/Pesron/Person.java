@@ -13,11 +13,11 @@ public class Person {
     private int passportNumber;
     private byte age;
 
-    public Person(String firstName, String middleName, String lastName, String birthDay, String birthMonth, String birthYear, short passportSeries, int passportNumber) {
+    public Person(String firstName, String middleName, String lastName, int birthYear, int birthMonth, int birthDay, short passportSeries, int passportNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
-        this.birthDate = LocalDate.parse(birthYear + "-" + birthMonth + "-" + birthDay);
+        this.birthDate = LocalDate.of(birthYear, birthMonth, birthDay);
         this.passportSeries = passportSeries;
         this.passportNumber = passportNumber;
         id = ++lastId;
@@ -101,11 +101,13 @@ public class Person {
         return id == person.id;
     }
 
+    @Override
     public int hashCode() {
         return (getFullName()+birthDate.toString()+getPassportData()+id).hashCode() * 31;
     }
 
+    @Override
     public String toString() {
-        return getFullName() + "\nID: " + id + "\nBirth date: " + birthDate.toString() + "\n" + age + " years old\n" + "Passport: " + getPassportData() + "\n\n";
+        return getFullName() + "\nID: " + id + "\nBirth date: " + birthDate.toString() + "\n" + age + " years old\n" + "Passport: " + getPassportData();
     }
 }
