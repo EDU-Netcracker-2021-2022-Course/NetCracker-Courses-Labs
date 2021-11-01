@@ -1,5 +1,6 @@
 package Contract;
 
+import Channel.Channel;
 import Pesron.Person;
 
 import java.util.ArrayList;
