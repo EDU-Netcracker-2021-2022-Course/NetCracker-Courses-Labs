@@ -1,14 +1,17 @@
-package Channel;
+package channel;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Channel {
+    private UUID id;
     private String name;
     private String siteAddress;
 
     public Channel(String name, String siteAddress) {
         this.name = name;
         this.siteAddress = siteAddress;
+        id = UUID.randomUUID();
     }
 
     public String getName() {
@@ -27,21 +30,28 @@ public class Channel {
         this.siteAddress = siteAddress;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Channel)) return false;
         Channel channel = (Channel) o;
-        return Objects.equals(getName(), channel.getName()) && Objects.equals(getSiteAddress(), channel.getSiteAddress());
+        return getId().equals(channel.getId()) && getName().equals(channel.getName()) && Objects.equals(getSiteAddress(), channel.getSiteAddress());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSiteAddress());
+        return Objects.hash(getId(), getName(), getSiteAddress());
     }
 
     @Override
     public String toString() {
-        return name + " Site: " + siteAddress;
+        return "Channel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

@@ -1,19 +1,20 @@
-package Contract;
+package contract;
 
-import Channel.Channel;
-import Pesron.Person;
+import channel.Channel;
+import person.Person;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContractTV extends Contract {
-    private ArrayList<Channel> channelsPackage;
+    private List<Channel> channelsPackage = new ArrayList<>();
 
     public ContractTV(String startingDate, String endingDate, int number, Person owner, ArrayList<Channel> channelsPackage) {
         super(startingDate, endingDate, number, owner);
         this.channelsPackage = channelsPackage;
     }
 
-    public ArrayList<Channel> getChannelsPackage() {
+    public List<Channel> getChannelsPackage() {
         return channelsPackage;
     }
 

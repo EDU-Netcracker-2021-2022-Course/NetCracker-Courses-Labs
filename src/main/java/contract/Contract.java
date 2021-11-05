@@ -1,12 +1,13 @@
-package Contract;
+package contract;
 
-import Pesron.Person;
+import person.Person;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public abstract class Contract {
     protected static int lastId = 0;
-    protected int id;
+    protected UUID id;
     protected LocalDate startingDate;
     protected LocalDate endingDate;
     protected int number;
@@ -17,10 +18,10 @@ public abstract class Contract {
         this.endingDate = LocalDate.parse(endingDate);
         this.number = number;
         this.owner = owner;
-        id = ++lastId;
+        id = UUID.randomUUID();
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -74,12 +75,12 @@ public abstract class Contract {
         if (number != contract.number) return false;
         if (!owner.equals(contract.owner)) return false;
         if (startingDate != contract.startingDate || endingDate != contract.endingDate) return false;
-        return id == contract.id;
+        return id.equals(contract.id);
     }
 
     @Override
     public int hashCode() {
-        return (number + owner.toString() + startingDate.toString() + endingDate.toString() + id).hashCode() * 31;
+        return (number + owner.toString() + startingDate.toString() + endingDate.toString() + id.toString()).hashCode() * 31;
     }
 
     @Override

@@ -1,10 +1,12 @@
-package Pesron;
+package person;
 
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.UUID;
 
 public class Person {
     private static int lastId = 0;
-    private final int id;
+    private final UUID id;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -20,11 +22,11 @@ public class Person {
         this.birthDate = LocalDate.of(birthYear, birthMonth, birthDay);
         this.passportSeries = passportSeries;
         this.passportNumber = passportNumber;
-        id = ++lastId;
+        id = UUID.randomUUID();
         setAge();
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -89,25 +91,28 @@ public class Person {
     }
 
     @Override
-    public boolean equals(Object obj){
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-
-        Person person = (Person) obj;
-
-        if (getFullName() != person.getFullName()) return false;
-        if (birthDate != person.birthDate) return false;
-        if (!getPassportData().equals(person.getPassportData())) return false;
-        return id == person.id;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getPassportSeries() == person.getPassportSeries() && getPassportNumber() == person.getPassportNumber() && getId().equals(person.getId()) && getFirstName().equals(person.getFirstName()) && getMiddleName().equals(person.getMiddleName()) && getLastName().equals(person.getLastName()) && getBirthDate().equals(person.getBirthDate());
     }
 
     @Override
     public int hashCode() {
-        return (getFullName()+birthDate.toString()+getPassportData()+id).hashCode() * 31;
+        return Objects.hash(getId(), getFirstName(), getMiddleName(), getLastName(), getBirthDate(), getPassportSeries(), getPassportNumber());
     }
 
     @Override
     public String toString() {
-        return getFullName() + "\nID: " + id + "\nBirth date: " + birthDate.toString() + "\n" + age + " years old\n" + "Passport: " + getPassportData();
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate=" + birthDate +
+                ", passportSeries=" + passportSeries +
+                ", passportNumber=" + passportNumber +
+                '}';
     }
 }

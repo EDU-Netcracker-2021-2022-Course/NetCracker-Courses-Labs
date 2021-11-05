@@ -1,6 +1,6 @@
-package Contract;
+package contract;
 
-import Pesron.Person;
+import person.Person;
 
 public class ContractMobile extends Contract {
 

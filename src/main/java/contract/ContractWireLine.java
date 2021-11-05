@@ -1,6 +1,6 @@
-package Contract;
+package contract;
 
-import Pesron.Person;
+import person.Person;
 
 public class ContractWireLine extends Contract {
     private int connectionSpeed;
