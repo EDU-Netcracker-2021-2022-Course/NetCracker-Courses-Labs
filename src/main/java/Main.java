@@ -1,5 +1,5 @@
-import Contract.ContractMobile;
-import Pesron.Person;
+import contract.ContractMobile;
+import person.Person;
 
 public class Main {
     public static void main(String[] args) {
