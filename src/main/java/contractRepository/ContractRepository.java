@@ -2,98 +2,160 @@ package contractRepository;
 
 import contract.Contract;
 
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.UUID;
 
 public class ContractRepository {
+    private static final int INIT_SIZE = 5;
     private UUID id;
-    private int initSize = 5;
+    private int pointer;
     private Contract[] contractContainer;
 
+    /**
+     * Constructs a new object.
+     */
     public ContractRepository() {
         id = UUID.randomUUID();
-        contractContainer = new Contract[initSize];
+        pointer = 0;
+        contractContainer = new Contract[ContractRepository.INIT_SIZE];
     }
 
     /**
-     * Add new contract into repository
+     * Appends the contract to the end of this repository.
      * @param contract
+     * @return true if this repository changed as a result of the call.
      */
     public void add(Contract contract) {
-//    TODO: Realize method
+        if (pointer == contractContainer.length - 1) {
+            resize((contractContainer.length * 3) / 2 + 1);
+        }
+        if (!contract.equals(null)) {
+            contractContainer[++pointer] = contract;
+        }
     }
 
     /**
-     * Add several new contracts into repository
+     * Appends several contracts to the end of this repository.
      * @param contracts
+     * @return true if this repository changed as a result of the call.
      */
-    public void add(Contract[] contracts) {
-//    TODO: Realize method
+    public void addAll(Contract[] contracts) {
+        for (int i = 0; i < contracts.length; i++) {
+            add(contracts[i]);
+        }
     }
 
     /**
-     * Removes contract from repository by its array index
+     * Removes the contract at the specified position in this repository. Shifts any subsequent contracts to the left.
      * @param index
-     * @return true if element has been deleted successfully and false if hasn't been.
+     * @return the element that was removed from the list.
      */
-    public boolean remove(int index) {
-//    TODO: Realize method
-        return false;
+    public Contract remove(int index) {
+        Contract oldValue = null;
+        try {
+            Objects.checkIndex(index, size());
+            oldValue = (Contract) contractContainer[index];
+            final int newSize;
+
+            if ((newSize = size() - 1) > index) {
+                System.arraycopy(contractContainer, index + 1, contractContainer, index, newSize - index);
+            }
+            contractContainer[pointer = newSize] = null;
+
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index of contract is out of bounds");
+        }
+
+        return oldValue;
     }
 
     /**
-     * Removes contract from repository by its id
+     * Removes the contract by its id in this repository. Shifts any subsequent contracts to the left.
      * @param id
-     * @return true if element has been deleted successfully and false if hasn't been.
+     * @return the element that was removed from the list.
      */
-    public boolean remove(UUID id) {
-//    TODO: Realize method
-        return false;
+    public Contract remove(UUID id) {
+        Contract contract = null;
+        for (int i = 0; i <= pointer; i++) {
+            try {
+                if (contractContainer[i].getId() == id) {
+                    remove(i);
+                    break;
+                }
+            } catch (NullPointerException e) {
+                continue;
+            }
+        }
+        return contract;
     }
 
     /**
-     * Return Contract object from repository by its id
+     * Return Contract object from repository by its id.
      * @param id
-     * @return Contract object by its id
+     * @return Contract object by its id.
      */
-    public Contract getContract(UUID id) {
-//    TODO: Realize method
-        return false;
+    public Contract get(UUID id) {
+        Contract contract = null;
+        for (int i = 0; i <= pointer; i++) {
+            try {
+                if (contractContainer[i].getId() == id) {
+                    contract = (Contract) contractContainer[i];
+                    break;
+                }
+            } catch (NullPointerException e) {
+                continue;
+            }
+        }
+        return contract;
     }
 
     /**
-     * Return Contract object from repository by its index
+     * Return Contract object from repository by its index.
      * @param index
-     * @return Contract object by its index
+     * @return Contract object by its index.
      */
-    public Contract getContract(int index) {
+    public Contract get(int index) {
         return (Contract) contractContainer[index];
     }
 
     /**
-     * Get current repository size
-     * @return contract repository size
+     * Returns the number of not null elements in this list.
+     * @return the number of not null elements in this list.
      */
-    public int getSize() {
+    public int size() {
+        return pointer + 1;
+    }
+
+    /**
+     * Return the full length of this repository.
+     * @return the full length of this repository.
+     */
+    public int getLength() {
         return contractContainer.length;
     }
 
     /**
-     * Set new repository size
+     * Increase repository size.
      * @param newSize
      */
     public void resize(int newSize) {
-//    TODO: Realize method
-        Contract[] newContractContainer = new Contract[newSize];
-        System.arraycopy(contractContainer, 0, newContractContainer, 0, contractContainer.length);
-        contractContainer = newContractContainer;
+        try {
+            if (newSize > contractContainer.length) {
+                contractContainer = Arrays.copyOf(contractContainer, newSize);
+            } else {
+                throw new NegativeArraySizeException();
+            }
+        } catch (NegativeArraySizeException e) {
+            System.out.println("The size of the new array must be larger than the initial size of the array.");
+        }
     }
 
     /**
-     * TODO: add description
-     * @return
+     * Clear this contract container and set pointer to the first element.
      */
-    public boolean checkSize() {
-//    TODO: Realize method
-        return false;
+    public void clear() {
+        contractContainer = new Contract[getLength()];
+        pointer = 0;
     }
 }
