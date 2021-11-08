@@ -17,7 +17,7 @@ public class ContractTV extends Contract {
      * @param owner
      * @param channelsPackage
      */
-    public ContractTV(String startingDate, String endingDate, int number, Person owner, ArrayList<Channel> channelsPackage) {
+    public ContractTV(String startingDate, String endingDate, int number, Person owner, List<Channel> channelsPackage) {
         super(startingDate, endingDate, number, owner);
         this.channelsPackage = channelsPackage;
     }
@@ -34,7 +34,7 @@ public class ContractTV extends Contract {
      * Set channel list available for this contract.
      * @param channelsPackage
      */
-    public void setChannelsPackage(ArrayList<Channel> channelsPackage) {
+    public void setChannelsPackage(List<Channel> channelsPackage) {
         this.channelsPackage = channelsPackage;
     }
 
@@ -42,7 +42,7 @@ public class ContractTV extends Contract {
      * Add list of channel for this contract.
      * @param channelsPackage
      */
-    public void addChannel (ArrayList<Channel> channelsPackage) {
+    public void addChannel (List<Channel> channelsPackage) {
         this.channelsPackage.addAll(channelsPackage);
     }
 
@@ -58,7 +58,7 @@ public class ContractTV extends Contract {
      * Remove list of channel for this contract.
      * @param channelsPackage
      */
-    public void removeChannel (ArrayList<Channel> channelsPackage) {
+    public void removeChannel (List<Channel> channelsPackage) {
         this.channelsPackage.removeAll(channelsPackage);
     }
 

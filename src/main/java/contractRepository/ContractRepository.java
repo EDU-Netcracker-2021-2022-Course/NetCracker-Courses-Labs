@@ -30,8 +30,10 @@ public class ContractRepository {
         if (pointer == contractContainer.length - 1) {
             resize((contractContainer.length * 3) / 2 + 1);
         }
-        if (!contract.equals(null)) {
-            contractContainer[++pointer] = contract;
+        try {
+            contractContainer[pointer++] = contract;
+        } catch (NullPointerException e) {
+            System.out.println("You're trying to add NULL object!");
         }
     }
 
@@ -79,7 +81,7 @@ public class ContractRepository {
         Contract contract = null;
         for (int i = 0; i <= pointer; i++) {
             try {
-                if (contractContainer[i].getId() == id) {
+                if (contractContainer[i].getId().equals(id)) {
                     remove(i);
                     break;
                 }
@@ -157,5 +159,34 @@ public class ContractRepository {
     public void clear() {
         contractContainer = new Contract[getLength()];
         pointer = 0;
+    }
+
+    /**
+     * Prints all contracts in this repository.
+     */
+    public Contract[] getArray() {
+        return contractContainer;
+    }
+
+    /**
+     * String representation of repository.
+     * @return string representation of repository.
+     */
+    @Override
+    public String toString() {
+        String contractToString = "";
+
+        for (Contract contract : contractContainer) {
+            try {
+                contractToString = contractToString + contract.toString() + "\n";
+            } catch (NullPointerException e) {
+                continue;
+            }
+        }
+
+        return "ContractRepository{\n" +
+                "id=" + id +
+                ", \nContracts=[" + contractToString + "]\n" +
+                "}";
     }
 }

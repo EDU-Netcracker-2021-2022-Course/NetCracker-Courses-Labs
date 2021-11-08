@@ -17,6 +17,12 @@ public class Channel {
         id = UUID.randomUUID();
     }
 
+    public Channel(String name) {
+        this.name = name;
+        this.siteAddress = "";
+        id = UUID.randomUUID();
+    }
+
     /**
      * Get channel's name.
      * @return String object that represents channel's name.
