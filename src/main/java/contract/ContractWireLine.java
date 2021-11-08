@@ -1,7 +1,7 @@
 package contract;
 
 import person.Person;
-
+// TODO: JavaDoc
 public class ContractWireLine extends Contract {
     private int connectionSpeed;
 

@@ -5,7 +5,7 @@ import person.Person;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// TODO: JavaDoc
 public class ContractTV extends Contract {
     private List<Channel> channelsPackage = new ArrayList<>();
 
