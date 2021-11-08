@@ -1,7 +1,7 @@
 package contract;
 
 import person.Person;
-// TODO: JavaDoc
+
 public class ContractMobile extends Contract {
 
     private short minutesTotal;
@@ -26,15 +26,15 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
-     * @return
+     * Get total minutes amount for this contract.
+     * @return total minutes amount for this contract.
      */
     public short getMinutesTotal() {
         return minutesTotal;
     }
 
     /**
-     *
+     * Change total minutes amount for this contract.
      * @param minutesTotal
      */
     public void setMinutesTotal(short minutesTotal) {
@@ -42,15 +42,15 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
-     * @return
+     * Get total messages amount for this contract.
+     * @return total messages amount for this contract.
      */
     public short getMessagesTotal() {
         return messagesTotal;
     }
 
     /**
-     *
+     * Change total messages amount for this contract.
      * @param messagesTotal
      */
     public void setMessagesTotal(short messagesTotal) {
@@ -58,15 +58,15 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
-     * @return
+     * Get total amount of Gb of traffic for this contract.
+     * @return total amount of Gb of traffic for this contract.
      */
     public short getTrafficTotal() {
         return trafficTotal;
     }
 
     /**
-     *
+     * Change total amount of Gb of traffic for this contract.
      * @param trafficTotal
      */
     public void setTrafficTotal(short trafficTotal) {
@@ -74,7 +74,7 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
+     * Add package of minutes to this contract.
      * @param minutes
      */
     public void addMinutes(short minutes) {
@@ -82,7 +82,7 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
+     * Add package of messages to this contract.
      * @param messages
      */
     public void addMessages(short messages) {
@@ -90,7 +90,7 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
+     * Add amount of Gb of traffic to this contract.
      * @param traffic
      */
     public void addTraffic(short traffic) {
@@ -98,7 +98,7 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
+     * Subtract package of minutes to this contract.
      * @param minutes
      */
     public void subMinutes(short minutes) {
@@ -106,7 +106,7 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
+     * Subtract package of messages to this contract.
      * @param messages
      */
     public void subMessages(short messages) {
@@ -114,7 +114,7 @@ public class ContractMobile extends Contract {
     }
 
     /**
-     *
+     * Subtract amount of Gb of traffic to this contract.
      * @param traffic
      */
     public void subTraffic(short traffic) {

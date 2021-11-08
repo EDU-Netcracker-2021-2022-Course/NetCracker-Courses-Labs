@@ -5,36 +5,68 @@ import person.Person;
 
 import java.util.ArrayList;
 import java.util.List;
-// TODO: JavaDoc
+
 public class ContractTV extends Contract {
     private List<Channel> channelsPackage = new ArrayList<>();
 
+    /**
+     * Constructs a new object.
+     * @param startingDate
+     * @param endingDate
+     * @param number
+     * @param owner
+     * @param channelsPackage
+     */
     public ContractTV(String startingDate, String endingDate, int number, Person owner, ArrayList<Channel> channelsPackage) {
         super(startingDate, endingDate, number, owner);
         this.channelsPackage = channelsPackage;
     }
 
+    /**
+     * getget channel list available for this contract.
+     * @return channel list available for this contract.
+     */
     public List<Channel> getChannelsPackage() {
         return channelsPackage;
     }
 
+    /**
+     * Set channel list available for this contract.
+     * @param channelsPackage
+     */
     public void setChannelsPackage(ArrayList<Channel> channelsPackage) {
         this.channelsPackage = channelsPackage;
     }
 
-    public void addChannels (ArrayList<Channel> channelsPackage) {
+    /**
+     * Add list of channel for this contract.
+     * @param channelsPackage
+     */
+    public void addChannel (ArrayList<Channel> channelsPackage) {
         this.channelsPackage.addAll(channelsPackage);
     }
 
-    public void addChannels (Channel channel) {
+    /**
+     * Add a channel for this contract.
+     * @param channel
+     */
+    public void addChannel (Channel channel) {
         this.channelsPackage.add(channel);
     }
 
-    public void removeChannels (ArrayList<Channel> channelsPackage) {
+    /**
+     * Remove list of channel for this contract.
+     * @param channelsPackage
+     */
+    public void removeChannel (ArrayList<Channel> channelsPackage) {
         this.channelsPackage.removeAll(channelsPackage);
     }
 
-    public void removeChannels (Channel channel) {
+    /**
+     * Remove a channel for this contract.
+     * @param channel
+     */
+    public void removeChannel (Channel channel) {
         this.channelsPackage.remove(channel);
     }
 }
