@@ -126,7 +126,7 @@ public class ContractRepository {
      * @return the number of not null elements in this list.
      */
     public int size() {
-        return pointer + 1;
+        return pointer;
     }
 
     /**

@@ -153,7 +153,7 @@ public class Person {
      * Get person's age.
      * @return person's age.
      */
-    public byte getAge() {
+    public int getAge() {
         return age;
     }
 
