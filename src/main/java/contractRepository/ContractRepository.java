@@ -3,14 +3,16 @@ package contractRepository;
 import contract.Contract;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.function.Predicate;
 
-public class ContractRepository {
+public class ContractRepository<T extends Contract> {
     private static final int INIT_SIZE = 5;
     private UUID id;
     private int pointer;
-    private Contract[] contractContainer;
+    private T[] contractContainer;
 
     /**
      * Constructs a new object.
@@ -18,7 +20,7 @@ public class ContractRepository {
     public ContractRepository() {
         id = UUID.randomUUID();
         pointer = 0;
-        contractContainer = new Contract[ContractRepository.INIT_SIZE];
+        contractContainer = (T[]) new Contract[ContractRepository.INIT_SIZE];
     }
 
     /**
@@ -26,7 +28,7 @@ public class ContractRepository {
      * @param contract
      * @return true if this repository changed as a result of the call.
      */
-    public void add(Contract contract) {
+    public void add(T contract) {
         if (pointer == contractContainer.length - 1) {
             resize((contractContainer.length * 3) / 2 + 1);
         }
@@ -42,7 +44,7 @@ public class ContractRepository {
      * @param contracts
      * @return true if this repository changed as a result of the call.
      */
-    public void addAll(Contract[] contracts) {
+    public void addAll(T[] contracts) {
         for (int i = 0; i < contracts.length; i++) {
             add(contracts[i]);
         }
@@ -53,14 +55,15 @@ public class ContractRepository {
      * @param index
      * @return the element that was removed from the list.
      */
-    public Contract remove(int index) {
-        Contract oldValue = null;
+    public T remove(int index) {
+        T oldValue = null;
         try {
             Objects.checkIndex(index, size());
-            oldValue = (Contract) contractContainer[index];
+            oldValue = contractContainer[index];
             final int newSize;
 
             if ((newSize = size() - 1) > index) {
+//                TODO: Check if this can be done with Arrays.copyOf()
                 System.arraycopy(contractContainer, index + 1, contractContainer, index, newSize - index);
             }
             contractContainer[pointer = newSize] = null;
@@ -77,12 +80,13 @@ public class ContractRepository {
      * @param id
      * @return the element that was removed from the list.
      */
-    public Contract remove(UUID id) {
-        Contract contract = null;
+    public T remove(UUID id) {
+        T contract = null;
         for (int i = 0; i <= pointer; i++) {
             try {
                 if (contractContainer[i].getId().equals(id)) {
                     remove(i);
+                    contract = contractContainer[i];
                     break;
                 }
             } catch (NullPointerException e) {
@@ -97,12 +101,12 @@ public class ContractRepository {
      * @param id
      * @return Contract object by its id.
      */
-    public Contract get(UUID id) {
-        Contract contract = null;
+    public T get(UUID id) {
+        T contract = null;
         for (int i = 0; i <= pointer; i++) {
             try {
-                if (contractContainer[i].getId() == id) {
-                    contract = (Contract) contractContainer[i];
+                if (contractContainer[i].getId().equals(id)) {
+                    contract = contractContainer[i];
                     break;
                 }
             } catch (NullPointerException e) {
@@ -117,8 +121,8 @@ public class ContractRepository {
      * @param index
      * @return Contract object by its index.
      */
-    public Contract get(int index) {
-        return (Contract) contractContainer[index];
+    public T get(int index) {
+        return contractContainer[index];
     }
 
     /**
@@ -157,14 +161,14 @@ public class ContractRepository {
      * Clear this contract container and set pointer to the first element.
      */
     public void clear() {
-        contractContainer = new Contract[getLength()];
+        contractContainer = (T[]) new Contract[getLength()];
         pointer = 0;
     }
 
     /**
      * Prints all contracts in this repository.
      */
-    public Contract[] getArray() {
+    public T[] getArray() {
         return contractContainer;
     }
 
@@ -176,7 +180,7 @@ public class ContractRepository {
     public String toString() {
         String contractToString = "";
 
-        for (Contract contract : contractContainer) {
+        for (T contract : contractContainer) {
             try {
                 contractToString = contractToString + contract.toString() + "\n";
             } catch (NullPointerException e) {

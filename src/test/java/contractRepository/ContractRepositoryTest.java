@@ -34,7 +34,7 @@ public class ContractRepositoryTest {
 
     @Test
     void addTest() {
-        ContractRepository localRepository = new ContractRepository();
+        ContractRepository<Contract> localRepository = new ContractRepository();
         localRepository.add(contractTV);
         localRepository.add(contractMobile);
         localRepository.add(contractWireLine);
@@ -44,7 +44,7 @@ public class ContractRepositoryTest {
 
     @Test
     void addAllTest() {
-        ContractRepository localRepository = new ContractRepository();
+        ContractRepository<Contract> localRepository = new ContractRepository();
         Contract[] contractArray = new Contract[]{contractMobile, contractWireLine, contractTV, contractMobile, contractWireLine, contractMobile};
         localRepository.addAll(contractArray);
 
@@ -53,18 +53,18 @@ public class ContractRepositoryTest {
 
     @Test
     void removeByIndexTest() {
-        ContractRepository localRepository = new ContractRepository();
+        ContractRepository<Contract> localRepository = new ContractRepository();
         Contract[] contractArray = new Contract[]{contractMobile, contractWireLine, contractTV, contractMobile, contractWireLine};
         localRepository.addAll(contractArray);
 
         localRepository.remove(2);
 
-        Assertions.assertEquals(5,localRepository.size());
+        Assertions.assertEquals(4,localRepository.size());
     }
 
     @Test
     void removeByIdTest() {
-        ContractRepository localRepository = new ContractRepository();
+        ContractRepository<Contract> localRepository = new ContractRepository();
         Contract[] contractArray = new Contract[]{contractMobile, contractWireLine, contractTV, contractMobile, contractWireLine};
         localRepository.addAll(contractArray);
 
@@ -75,7 +75,7 @@ public class ContractRepositoryTest {
 
     @Test
     void getInstanceOfTest() {
-        ContractRepository localRepository = new ContractRepository();
+        ContractRepository<Contract> localRepository = new ContractRepository();
         Contract[] contractArray = new Contract[]{contractMobile, contractWireLine, contractTV, contractMobile, contractWireLine};
         localRepository.addAll(contractArray);
 
@@ -84,7 +84,7 @@ public class ContractRepositoryTest {
 
     @Test
     void sizeTest() {
-        ContractRepository localRepository = new ContractRepository();
+        ContractRepository<Contract> localRepository = new ContractRepository();
         Contract[] contractArray = new Contract[]{contractMobile, contractWireLine, contractTV, contractWireLine, contractMobile};
         localRepository.addAll(contractArray);
         Assertions.assertEquals(5,localRepository.size());
