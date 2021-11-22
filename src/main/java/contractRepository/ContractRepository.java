@@ -2,10 +2,8 @@ package contractRepository;
 
 import contract.Contract;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.UUID;
+import java.lang.management.OperatingSystemMXBean;
+import java.util.*;
 import java.util.function.Predicate;
 
 public class ContractRepository<T extends Contract> {
@@ -168,8 +166,12 @@ public class ContractRepository<T extends Contract> {
     /**
      * Prints all contracts in this repository.
      */
-    public T[] getArray() {
-        return contractContainer;
+    public Contract[] getArray() {
+        Contract[] newArray = new Contract[size()];
+        for (int i = 0; i < this.size(); i++) {
+            newArray[i] = contractContainer[i];
+        }
+        return newArray;
     }
 
     /**
@@ -192,5 +194,17 @@ public class ContractRepository<T extends Contract> {
                 "id=" + id +
                 ", \nContracts=[" + contractToString + "]\n" +
                 "}";
+    }
+
+    public Optional<Contract> searchContract(Predicate<Contract> predicate) {
+        Optional<Contract> optionalContract = Optional.empty();
+
+        for (Contract contract : contractContainer) {
+            if(predicate.test(contract)) {
+                optionalContract = Optional.of(contract);
+                break;
+            }
+        }
+        return optionalContract;
     }
 }
