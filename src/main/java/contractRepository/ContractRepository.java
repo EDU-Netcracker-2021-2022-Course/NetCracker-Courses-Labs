@@ -1,6 +1,10 @@
 package contractRepository;
 
 import contract.Contract;
+import sorting.BubbleSort;
+import sorting.ISorter;
+import sorting.MergeSort;
+import sorting.QuickSort;
 
 import java.lang.management.OperatingSystemMXBean;
 import java.util.*;
@@ -11,6 +15,9 @@ public class ContractRepository<T extends Contract> {
     private UUID id;
     private int pointer;
     private T[] contractContainer;
+    private ISorter sorterBubble = new BubbleSort();
+    private ISorter sorterMerge = new MergeSort();
+    private ISorter sorterQuick = new QuickSort();
 
     /**
      * Constructs a new object.
@@ -206,5 +213,9 @@ public class ContractRepository<T extends Contract> {
             }
         }
         return optionalContract;
+    }
+
+    public void sort(Comparator<T> comparator) {
+        sorterBubble.sort(contractContainer, comparator);
     }
 }
