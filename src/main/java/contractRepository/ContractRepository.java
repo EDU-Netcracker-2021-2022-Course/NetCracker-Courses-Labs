@@ -6,7 +6,6 @@ import sorting.ISorter;
 import sorting.MergeSort;
 import sorting.QuickSort;
 
-import java.lang.management.OperatingSystemMXBean;
 import java.util.*;
 import java.util.function.Predicate;
 
@@ -142,7 +141,7 @@ public class ContractRepository<T extends Contract> {
      * Return the full length of this repository.
      * @return the full length of this repository.
      */
-    public int getLength() {
+    public int getFullLength() {
         return contractContainer.length;
     }
 
@@ -166,7 +165,7 @@ public class ContractRepository<T extends Contract> {
      * Clear this contract container and set pointer to the first element.
      */
     public void clear() {
-        contractContainer = (T[]) new Contract[getLength()];
+        contractContainer = (T[]) new Contract[getFullLength()];
         pointer = 0;
     }
 
@@ -216,6 +215,6 @@ public class ContractRepository<T extends Contract> {
     }
 
     public void sort(Comparator<T> comparator) {
-        sorterBubble.sort(contractContainer, comparator);
+        sorterQuick.sort(contractContainer, comparator);
     }
 }
