@@ -1,6 +1,9 @@
 package person;
 
+import Enums.Sex;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -14,25 +17,26 @@ public class Person {
     private short passportSeries;
     private int passportNumber;
     private byte age;
+    private Sex sex;
 
     /**
      *
      * @param firstName
      * @param middleName
      * @param lastName
-     * @param birthYear
-     * @param birthMonth
-     * @param birthDay
+     * @param birthDate
      * @param passportSeries
      * @param passportNumber
      */
-    public Person(String firstName, String middleName, String lastName, int birthYear, int birthMonth, int birthDay, short passportSeries, int passportNumber) {
+    public Person(String firstName, String middleName, String lastName, Sex sex, String birthDate, short passportSeries, int passportNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
-        this.birthDate = LocalDate.of(birthYear, birthMonth, birthDay);
+//        FixMe: Fix parsing
+        this.birthDate = LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("MM.dd.yyyy"));
         this.passportSeries = passportSeries;
         this.passportNumber = passportNumber;
+        this.sex = sex;
         id = UUID.randomUUID();
         setAge();
     }
@@ -162,6 +166,22 @@ public class Person {
      */
     public void setAge() {
         age = (byte) birthDate.until(LocalDate.now()).getYears();
+    }
+
+    /**
+     * Get person's sex.
+     * @return person's sex.
+     */
+    public Sex getSex() {
+        return sex;
+    }
+
+    /**
+     * Set person's sex.
+     * @param sex
+     */
+    private void setSex(Sex sex) {
+        this.sex = sex;
     }
 
     /**

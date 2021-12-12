@@ -1,5 +1,6 @@
 package person;
 
+import Enums.Sex;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,9 +21,8 @@ public class PersonTest {
         person1 = new Person("Иван",
                 "Иванович",
                 "Иванов",
-                1960,
-                10,
-                22,
+                Sex.MALE,
+                "10.22.1960",
                 (short) 2208,
                 123456
         );
@@ -30,9 +30,8 @@ public class PersonTest {
         person2 = new Person("Константинов",
                 "Петр",
                 "Игоревич",
-                1975,
-                11,
-                01,
+                Sex.MALE,
+                "01.11.1975",
                 (short) 1975,
                 456789
         );
@@ -40,9 +39,8 @@ public class PersonTest {
         person3 = new Person("Михайлов",
                 "Игорь",
                 "Игоревич",
-                1935,
-                01,
-                30,
+                Sex.MALE,
+                "01.30.1975",
                 (short) 1975,
                 456789
         );
