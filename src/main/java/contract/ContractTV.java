@@ -1,5 +1,6 @@
 package contract;
 
+import Enums.ContractType;
 import channel.Channel;
 import person.Person;
 
@@ -17,8 +18,8 @@ public class ContractTV extends Contract {
      * @param owner
      * @param channelsPackage
      */
-    public ContractTV(String startingDate, String endingDate, int number, Person owner, List<Channel> channelsPackage) {
-        super(startingDate, endingDate, number, owner);
+    public ContractTV(String startingDate, String endingDate, int number, Person owner, List<Channel> channelsPackage, ContractType type) {
+        super(startingDate, endingDate, number, owner, type);
         this.channelsPackage = channelsPackage;
     }
 
@@ -68,5 +69,18 @@ public class ContractTV extends Contract {
      */
     public void removeChannel (Channel channel) {
         this.channelsPackage.remove(channel);
+    }
+
+    @Override
+    public String toString() {
+        return "ContractTV{" +
+                "id=" + id +
+                ", startingDate=" + startingDate +
+                ", endingDate=" + endingDate +
+                ", number=" + number +
+                ", owner=" + owner +
+                ", type=" + type +
+                ", channelsPackage=" + channelsPackage +
+                '}';
     }
 }

@@ -1,5 +1,6 @@
 package contract;
 
+import Enums.ContractType;
 import person.Person;
 
 public class ContractWireLine extends Contract {
@@ -13,8 +14,8 @@ public class ContractWireLine extends Contract {
      * @param owner
      * @param connectionSpeed
      */
-    public ContractWireLine(String startingDate, String endingDate, int number, Person owner, int connectionSpeed) {
-        super(startingDate, endingDate, number, owner);
+    public ContractWireLine(String startingDate, String endingDate, int number, Person owner, int connectionSpeed, ContractType type) {
+        super(startingDate, endingDate, number, owner, type);
         this.connectionSpeed = connectionSpeed;
     }
 
@@ -32,5 +33,18 @@ public class ContractWireLine extends Contract {
      */
     public void setConnectionSpeed(int connectionSpeed) {
         this.connectionSpeed = connectionSpeed;
+    }
+
+    @Override
+    public String toString() {
+        return "ContractWireLine{" +
+                "id=" + id +
+                ", startingDate=" + startingDate +
+                ", endingDate=" + endingDate +
+                ", number=" + number +
+                ", owner=" + owner +
+                ", type=" + type +
+                ", connectionSpeed=" + connectionSpeed +
+                '}';
     }
 }

@@ -1,5 +1,6 @@
 package contract;
 
+import Enums.ContractType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +26,8 @@ public class ContractTest {
                 "2020-05-10",
                 1234567,
                 person,
-                500);
+                500,
+                ContractType.WIRELINE);
     }
 
     @Test

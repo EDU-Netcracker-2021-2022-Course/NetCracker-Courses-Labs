@@ -2,7 +2,7 @@ package contractRepository;
 
 import contract.Contract;
 import sorting.BubbleSort;
-import sorting.ISorter;
+import interfaces.ISorter;
 import sorting.MergeSort;
 import sorting.QuickSort;
 
@@ -170,17 +170,6 @@ public class ContractRepository<T extends Contract> {
     }
 
     /**
-     * Prints all contracts in this repository.
-     */
-    public Contract[] getArray() {
-        Contract[] newArray = new Contract[size()];
-        for (int i = 0; i < this.size(); i++) {
-            newArray[i] = contractContainer[i];
-        }
-        return newArray;
-    }
-
-    /**
      * String representation of repository.
      * @return string representation of repository.
      */
@@ -202,6 +191,11 @@ public class ContractRepository<T extends Contract> {
                 "}";
     }
 
+    /**
+     * Searches contracts in repo using predicate
+     * @param predicate
+     * @return Optional Contract object
+     */
     public Optional<Contract> searchContract(Predicate<Contract> predicate) {
         Optional<Contract> optionalContract = Optional.empty();
 

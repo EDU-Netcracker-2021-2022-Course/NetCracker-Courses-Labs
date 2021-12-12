@@ -1,8 +1,10 @@
 package contract;
 
+import Enums.ContractType;
 import person.Person;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -13,6 +15,7 @@ public abstract class Contract {
     protected LocalDate endingDate;
     protected int number;
     protected Person owner;
+    protected ContractType type;
 
     /**
      * Define parent constructor
@@ -21,11 +24,12 @@ public abstract class Contract {
      * @param number
      * @param owner
      */
-    public Contract(String startingDate, String endingDate, int number, Person owner) {
-        this.startingDate = LocalDate.parse(startingDate);
-        this.endingDate = LocalDate.parse(endingDate);
+    public Contract(String startingDate, String endingDate, int number, Person owner, ContractType type) {
+        this.startingDate = LocalDate.parse(startingDate, DateTimeFormatter.ofPattern("MM.dd.yyyy"));
+        this.endingDate = LocalDate.parse(endingDate, DateTimeFormatter.ofPattern("MM.dd.yyyy"));
         this.number = number;
         this.owner = owner;
+        this.type = type;
         id = UUID.randomUUID();
     }
 

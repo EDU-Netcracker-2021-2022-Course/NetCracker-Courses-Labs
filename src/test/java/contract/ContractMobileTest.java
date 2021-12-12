@@ -1,5 +1,6 @@
 package contract;
 
+import Enums.ContractType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,8 @@ public class ContractMobileTest {
                 person,
                 (short) 100,
                 (short) 50,
-                (short) 5);
+                (short) 5,
+                ContractType.MOBILE);
     }
 
     @Test

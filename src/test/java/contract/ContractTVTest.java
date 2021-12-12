@@ -1,5 +1,6 @@
 package contract;
 
+import Enums.ContractType;
 import channel.Channel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -30,7 +31,8 @@ public class ContractTVTest {
                 "2021-11-08",
                 56464842,
                 person,
-                channelList);
+                channelList,
+                ContractType.TV);
     }
 
     @Test

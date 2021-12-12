@@ -1,5 +1,6 @@
 package contract;
 
+import Enums.ContractType;
 import person.Person;
 
 public class ContractMobile extends Contract {
@@ -18,8 +19,8 @@ public class ContractMobile extends Contract {
      * @param messagesTotal
      * @param trafficTotal
      */
-    public ContractMobile(String startingDate, String endingDate, int number, Person owner, short minutesTotal, short messagesTotal, short trafficTotal) {
-        super(startingDate, endingDate, number, owner);
+    public ContractMobile(String startingDate, String endingDate, int number, Person owner, short minutesTotal, short messagesTotal, short trafficTotal, ContractType type) {
+        super(startingDate, endingDate, number, owner, type);
         this.minutesTotal = minutesTotal;
         this.messagesTotal = messagesTotal;
         this.trafficTotal = trafficTotal;
@@ -119,5 +120,20 @@ public class ContractMobile extends Contract {
      */
     public void subTraffic(short traffic) {
         trafficTotal -= traffic;
+    }
+
+    @Override
+    public String toString() {
+        return "ContractMobile{" +
+                "id=" + id +
+                ", startingDate=" + startingDate +
+                ", endingDate=" + endingDate +
+                ", number=" + number +
+                ", owner=" + owner +
+                ", type=" + type +
+                ", minutesTotal=" + minutesTotal +
+                ", messagesTotal=" + messagesTotal +
+                ", trafficTotal=" + trafficTotal +
+                '}';
     }
 }
