@@ -1,9 +1,11 @@
 package sorting;
 
 import contract.Contract;
+import interfaces.ISorter;
+
 import java.util.Comparator;
 
-public class BubbleSort implements ISorter{
+public class BubbleSort implements ISorter {
     @Override
     public <T extends Contract> void sort(T[] contracts, Comparator<T> comparator) {
         for (int i = contracts.length; i >= 2; i--){

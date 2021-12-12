@@ -1,5 +1,7 @@
 package sorting;
 
+import Enums.ContractType;
+import Enums.Sex;
 import channel.Channel;
 import contract.Contract;
 import contract.ContractMobile;
@@ -40,9 +42,8 @@ public class SortTest {
         person1 = new Person("Иван",
                 "Иванович",
                 "Иванов",
-                1960,
-                10,
-                22,
+                Sex.MALE,
+                "10.22.1960",
                 (short) 2208,
                 123456
         );
@@ -50,9 +51,8 @@ public class SortTest {
         person2 = new Person("Константинов",
                 "Петр",
                 "Игоревич",
-                1975,
-                11,
-                01,
+                Sex.MALE,
+                "01.11.1975",
                 (short) 1975,
                 456789
         );
@@ -60,9 +60,8 @@ public class SortTest {
         person3 = new Person("Михайлов",
                 "Игорь",
                 "Игоревич",
-                1935,
-                01,
-                30,
+                Sex.MALE,
+                "01.30.1935",
                 (short) 1975,
                 456789
         );
@@ -70,9 +69,8 @@ public class SortTest {
         person4 = new Person("Борисов",
                 "Михаил",
                 "Петрови",
-                1950,
-                01,
-                30,
+                Sex.MALE,
+                "01.30.1950",
                 (short) 1987,
                 123874
         );
@@ -83,21 +81,24 @@ public class SortTest {
                 person1,
                 (short) 100,
                 (short) 50,
-                (short) 5
+                (short) 5,
+                ContractType.MOBILE
         );
 
         contractTV = new ContractTV("2019-05-10",
                 "2021-11-08",
                 56464842,
                 person2,
-                channelList
+                channelList,
+                ContractType.TV
         );
 
         contractWireLine = new ContractWireLine("2019-05-10",
                 "2020-05-10",
                 1234567,
                 person3,
-                500
+                500,
+                ContractType.WIRELINE
         );
 
         contractMobile2 = new ContractMobile("2020-10-10",
@@ -106,14 +107,16 @@ public class SortTest {
                 person1,
                 (short) 100,
                 (short) 50,
-                (short) 5
+                (short) 5,
+                ContractType.MOBILE
         );
 
         contractTV2 = new ContractTV("2021-06-11",
                 "2021-11-08",
                 1231235534,
                 person3,
-                channelList
+                channelList,
+                ContractType.TV
         );
 
         localRepository.add(contractTV);

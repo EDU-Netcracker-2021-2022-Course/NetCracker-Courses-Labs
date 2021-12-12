@@ -1,6 +1,7 @@
 package sorting;
 
 import contract.Contract;
+import interfaces.ISorter;
 
 import java.util.Comparator;
 

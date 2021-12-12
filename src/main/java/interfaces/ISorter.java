@@ -1,4 +1,4 @@
-package sorting;
+package interfaces;
 
 import contract.Contract;
 

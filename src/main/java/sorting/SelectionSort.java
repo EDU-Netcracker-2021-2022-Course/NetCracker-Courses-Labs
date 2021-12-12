@@ -1,10 +1,11 @@
 package sorting;
 
 import contract.Contract;
+import interfaces.ISorter;
 
 import java.util.Comparator;
 
-public class SelectionSort implements ISorter{
+public class SelectionSort implements ISorter {
     @Override
     public <T extends Contract> void sort(T[] contracts, Comparator<T> comparator) {
         for (int i = 0; i < contracts.length - 1; i++) {
