@@ -11,6 +11,7 @@ import contract.ContractWireLine;
 import contractRepository.ContractRepository;
 import interfaces.IReadable;
 import person.Person;
+import utils.validator.ContractValidator;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -23,6 +24,7 @@ import java.util.*;
 public class ContractDataCSVReader implements IReadable {
 
     public void run(String filename, ContractRepository repo) {
+        ContractValidator contractValidator = new ContractValidator();
         String csvFileName = "src/main/resources/" + filename;
 
         List<String[]> contractsData = getDataFromCSV(csvFileName);
@@ -71,6 +73,7 @@ public class ContractDataCSVReader implements IReadable {
                     break;
             }
 
+            contractValidator.validate(contract);
             repo.add(contract);
         }
     }
