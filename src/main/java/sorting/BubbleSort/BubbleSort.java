@@ -1,4 +1,4 @@
-package sorting;
+package sorting.BubbleSort;
 
 import contract.Contract;
 import interfaces.ISorter;
@@ -16,5 +16,6 @@ public class BubbleSort implements ISorter {
                     }
             }
         }
+        System.out.println("Repository was sorted using Bubble sorting method");
     }
 }

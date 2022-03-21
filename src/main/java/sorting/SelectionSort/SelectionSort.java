@@ -1,4 +1,4 @@
-package sorting;
+package sorting.SelectionSort;
 
 import contract.Contract;
 import interfaces.ISorter;
@@ -20,5 +20,7 @@ public class SelectionSort implements ISorter {
             contracts[minIndex] = contracts[i];
             contracts[i] = min;
         }
+
+        System.out.println("Repository was sorted using Selection sorting method");
     }
 }

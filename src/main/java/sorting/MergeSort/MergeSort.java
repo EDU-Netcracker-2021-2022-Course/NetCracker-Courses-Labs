@@ -1,4 +1,4 @@
-package sorting;
+package sorting.MergeSort;
 
 import contract.Contract;
 import interfaces.ISorter;
@@ -9,6 +9,7 @@ public class MergeSort implements ISorter {
     @Override
     public <T extends Contract> void sort(T[] contracts, Comparator<T> comparator) {
         mergeSort(contracts, contracts.length - 1, comparator);
+        System.out.println("Repository was sorted using Merge sorting method");
     }
 
     public static <T extends Contract> void mergeSort(T[] contracts, int n, Comparator<T> comparator) {

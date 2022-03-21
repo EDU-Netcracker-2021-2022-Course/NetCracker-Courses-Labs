@@ -1,4 +1,4 @@
-package utils.validator.modelChecker;
+package utils.validator.modelChecker.PersonChecker;
 
 import Enums.Sex;
 import person.Person;

@@ -73,8 +73,9 @@ public class ContractDataCSVReader implements IReadable {
                     break;
             }
 
-            contractValidator.validate(contract);
-            repo.add(contract);
+            if(contractValidator.validate(contract).getStatus().equals("ok")) {
+                repo.add(contract);
+            }
         }
     }
 
@@ -86,7 +87,7 @@ public class ContractDataCSVReader implements IReadable {
         try {
             csvReader = new CSVReader(new FileReader(filename));
         } catch (FileNotFoundException e) {
-            System.out.printf("File %d not found! Check the filename!");
+            System.out.printf("File %s not found! Check the filename!", filename);
             e.printStackTrace();
         }
 
