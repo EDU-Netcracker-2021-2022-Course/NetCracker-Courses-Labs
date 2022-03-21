@@ -1,4 +1,4 @@
-package utils.validator.modelChecker;
+package utils.validator.modelChecker.ContractChecker;
 
 import contract.Contract;
 import person.Person;

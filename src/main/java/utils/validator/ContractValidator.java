@@ -1,16 +1,23 @@
 package utils.validator;
 
 import contract.Contract;
-import utils.validator.modelChecker.ContractChecker;
-import utils.validator.modelChecker.PersonChecker;
+import dInjection.Autoinjectable;
+import dInjection.Injector;
+import utils.validator.modelChecker.ContractChecker.ContractChecker;
+import utils.validator.modelChecker.PersonChecker.PersonChecker;
 
 public class ContractValidator {
+    @Autoinjectable
+    ContractChecker contractChecker;
+    @Autoinjectable
+    PersonChecker personChecker;
+
+    public ContractValidator() {
+        Injector inj = new Injector(this);
+    }
 
     public ValidatorReport validate(Contract contract){
         ValidatorReport report = new ValidatorReport();
-
-        ContractChecker contractChecker = new ContractChecker();
-        PersonChecker personChecker = new PersonChecker();
         report.setStatus("ok");
 
         if(!(contractChecker.checkId(contract))){
@@ -97,6 +104,8 @@ public class ContractValidator {
                 report.addErrorVariableName("Person|sex");
             }
         }
+
+
 
         return report;
     }

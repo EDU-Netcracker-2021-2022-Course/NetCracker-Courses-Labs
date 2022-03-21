@@ -1,4 +1,4 @@
-package sorting;
+package sorting.QuickSort;
 
 import contract.Contract;
 import interfaces.ISorter;
@@ -20,6 +20,8 @@ public class QuickSort implements ISorter {
 
         if (end > i)
             quickSort(contracts, begin, i, comparator);
+
+        System.out.println("Repository was sorted using Quick sorting method");
     }
 
     private <T extends Contract> void quickSort(T[] contracts, int begin, int end, Comparator<T> comparator) {
