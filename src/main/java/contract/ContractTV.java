@@ -4,10 +4,16 @@ import Enums.ContractType;
 import channel.Channel;
 import person.Person;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlType
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ContractTV extends Contract {
+
+    @XmlElement(name = "channel")
+    @XmlElementWrapper(name = "channels")
     private List<Channel> channelsPackage = new ArrayList<>();
 
     /**
@@ -21,6 +27,10 @@ public class ContractTV extends Contract {
     public ContractTV(String startingDate, String endingDate, int number, Person owner, List<Channel> channelsPackage, ContractType type) {
         super(startingDate, endingDate, number, owner, type);
         this.channelsPackage = channelsPackage;
+    }
+
+    public ContractTV() {
+
     }
 
     /**

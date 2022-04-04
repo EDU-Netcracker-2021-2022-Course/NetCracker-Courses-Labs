@@ -3,10 +3,22 @@ package contract;
 import Enums.ContractType;
 import person.Person;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(propOrder = {"minutesTotal", "messagesTotal", "trafficTotal"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ContractMobile extends Contract {
 
+    @XmlElement(name = "contract_minutes_count")
     private short minutesTotal;
+
+    @XmlElement(name = "contract_messages_count")
     private short messagesTotal;
+
+    @XmlElement(name = "contract_traffic_total")
     private short trafficTotal;
 
     /**
@@ -25,6 +37,8 @@ public class ContractMobile extends Contract {
         this.messagesTotal = messagesTotal;
         this.trafficTotal = trafficTotal;
     }
+
+    public ContractMobile() {}
 
     /**
      * Get total minutes amount for this contract.
