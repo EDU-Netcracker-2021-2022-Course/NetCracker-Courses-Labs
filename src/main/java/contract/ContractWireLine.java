@@ -3,7 +3,16 @@ package contract;
 import Enums.ContractType;
 import person.Person;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ContractWireLine extends Contract {
+
+    @XmlElement(name = "connection_speed")
     private int connectionSpeed;
 
     /**
@@ -19,6 +28,9 @@ public class ContractWireLine extends Contract {
         this.connectionSpeed = connectionSpeed;
     }
 
+    public ContractWireLine() {
+
+    }
     /**
      * Get available speed connection for this contract.
      * @return available speed connection for this contract.

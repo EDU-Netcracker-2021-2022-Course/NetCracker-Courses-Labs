@@ -1,11 +1,17 @@
 package channel;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 import java.util.UUID;
 
+@XmlType(name = "channel")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Channel {
+    @XmlAttribute
     private UUID id;
+    @XmlElement
     private String name;
+    @XmlElement
     private String siteAddress;
 
     /**
@@ -21,6 +27,10 @@ public class Channel {
         this.name = name;
         this.siteAddress = "";
         id = UUID.randomUUID();
+    }
+
+    public Channel() {
+
     }
 
     /**

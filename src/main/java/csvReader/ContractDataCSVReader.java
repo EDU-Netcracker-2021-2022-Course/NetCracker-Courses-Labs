@@ -10,6 +10,7 @@ import contract.ContractTV;
 import contract.ContractWireLine;
 import contractRepository.ContractRepository;
 import interfaces.IReadable;
+import org.slf4j.LoggerFactory;
 import person.Person;
 import utils.validator.ContractValidator;
 
@@ -75,7 +76,11 @@ public class ContractDataCSVReader implements IReadable {
 
             if(contractValidator.validate(contract).getStatus().equals("ok")) {
                 repo.add(contract);
+            } else {
+                LoggerFactory.getLogger("Contract validatior").error("Contract " + contract + " didn't pass validation");
             }
+
+            repo.add(contract);
         }
     }
 

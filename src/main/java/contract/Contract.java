@@ -1,20 +1,37 @@
 package contract;
 
 import Enums.ContractType;
+import jaxb.LocalDateAdapter;
 import person.Person;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.UUID;
 
+@XmlType(
+        name = "contract",
+        propOrder = {"id", "number", "type", "owner", "startingDate", "endingDate"})
+@XmlSeeAlso({ContractMobile.class, ContractTV.class, ContractWireLine.class})
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Contract {
     protected static int lastId = 0;
+
+    @XmlAttribute
     protected UUID id;
+    @XmlElement(name = "starting_date")
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     protected LocalDate startingDate;
+    @XmlElement(name = "ending_date")
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     protected LocalDate endingDate;
+    @XmlElement(name = "contract_number")
     protected int number;
+    @XmlElement(name = "contract_owner")
     protected Person owner;
+    @XmlAttribute
     protected ContractType type;
 
     /**
@@ -31,6 +48,9 @@ public abstract class Contract {
         this.owner = owner;
         this.type = type;
         id = UUID.randomUUID();
+    }
+
+    public Contract() {
     }
 
     /**
