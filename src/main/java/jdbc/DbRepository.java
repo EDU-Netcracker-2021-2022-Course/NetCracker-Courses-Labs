@@ -2,6 +2,7 @@ package jdbc;
 
 import Enums.ContractType;
 import Enums.Sex;
+import channel.Channel;
 import contract.Contract;
 import contract.ContractMobile;
 import contract.ContractTV;
@@ -15,6 +16,7 @@ import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -89,9 +91,16 @@ public class DbRepository {
     public void saveRepo(ContractRepository repo) {
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
             Class.forName(driver);
-            PreparedStatement preparedStatementRepo = connection.prepareStatement("INSERT INTO CONTRACT (id,starting_date,ending_date,contract_number," + "contract_owner,contract_type, additional_info)" + "VALUES(?,?,?,?,?,?,?);");
+            PreparedStatement preparedStatementRepo = connection.prepareStatement(
+                    "INSERT INTO CONTRACT (id,starting_date,ending_date,contract_number," +
+                            "contract_owner,contract_type, additional_info)" +
+                            "VALUES(?,?,?,?,?,?,?);");
 
-            PreparedStatement preparedStatementPerson = connection.prepareStatement("INSERT INTO PERSON (id, first_name, middle_name, last_name," + "birth_date, passport_series, passport_number, age, sex)" + "VALUES(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatementPerson = connection.prepareStatement(
+                    "INSERT INTO PERSON (id, first_name, middle_name, last_name," +
+                            "birth_date, passport_series, passport_number, age, sex)" +
+                            "VALUES(?,?,?,?,?,?,?,?,?)");
+
 
             for (int i = 0; i < repo.size(); i++) {
                 Contract contract = repo.get(i);
@@ -107,7 +116,7 @@ public class DbRepository {
                 preparedStatementPerson.setInt(8, owner.getAge());
                 preparedStatementPerson.setString(9, owner.getSex().toString());
                 preparedStatementPerson.executeUpdate();
-                LOGGER.info("Persons were saved");
+                LOGGER.info("Person was saved");
 
                 preparedStatementRepo.setString(1, contract.getId().toString());
                 preparedStatementRepo.setString(2, contract.getStartingDate().toString());
@@ -123,11 +132,30 @@ public class DbRepository {
                     preparedStatementRepo.setString(7, Integer.toString(((ContractWireLine) contract).getConnectionSpeed()));
                 } else if (contract instanceof ContractTV) {
                     preparedStatementRepo.setString(6, ContractType.TV.name());
-                    preparedStatementRepo.setString(7, ((ContractTV) contract).getChannelsPackage().toString());
+
+                    String channelToDb = "";
+
+                    for (Channel channel : ((ContractTV) contract).getChannelsPackage()) {
+                        String chId = channel.getId().toString();
+                        String chName = channel.getName();
+                        String chSite = channel.getSiteAddress();
+
+                        if (chName.equals("") || chName == null) {
+                            chName = " ";
+                        }
+
+                        if (chSite.equals("") || chName == null) {
+                            chSite = " ";
+                        }
+
+                        String ch = chId + "," + chName + "," + chSite;
+                        channelToDb += ch + ";";
+                    }
+                    preparedStatementRepo.setString(7, channelToDb);
                 }
 
                 preparedStatementRepo.executeUpdate();
-                LOGGER.info("Contracts were saved");
+                LOGGER.info("Contract was saved");
             }
         } catch (Exception e) {
             LOGGER.error("Cannot connect to database", e);
@@ -166,7 +194,23 @@ public class DbRepository {
                 } else if (contractType.equals("TV")) {
                     contract = new ContractTV();
                     contract.setType(ContractType.TV);
-                    ((ContractTV) contract).setChannelsPackage(new ArrayList<>());
+
+
+                    List<Channel> channels = new ArrayList<>();
+                    String[] chStrings = resultSetContracts.getString(7).split(";");
+
+                    for (String channel : chStrings) {
+                        String[] channelFields = channel.split(",");
+
+                        Channel newChannel = new Channel();
+                        newChannel.setId(UUID.fromString(channelFields[0]));
+                        newChannel.setName(channelFields[1]);
+                        newChannel.setSiteAddress(channelFields[2]);
+
+                        channels.add(newChannel);
+                    }
+
+                    ((ContractTV) contract).setChannelsPackage(channels);
                 }
 
                 contract.setId(UUID.fromString(resultSetContracts.getString(1)));

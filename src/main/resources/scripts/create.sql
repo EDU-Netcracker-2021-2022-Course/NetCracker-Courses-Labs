@@ -17,11 +17,6 @@ CREATE TABLE IF NOT EXISTS PUBLIC.PERSON
 CREATE TABLE IF NOT EXISTS PUBLIC.CONTRACT
 (
     id VARCHAR PRIMARY KEY NOT NULL,
-    starting_date VARCHAR,
-    ending_date VARCHAR,
-    contract_number INT,
-    contract_owner VARCHAR,
-    FOREIGN KEY (contract_owner) REFERENCES PUBLIC.PERSON,
-    contract_type VARCHAR,
-    additional_info VARCHAR
+    name VARCHAR NOT NULL,
+    site VARCHAR
 );

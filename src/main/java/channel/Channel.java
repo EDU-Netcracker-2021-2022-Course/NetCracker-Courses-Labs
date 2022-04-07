@@ -74,6 +74,14 @@ public class Channel {
     }
 
     /**
+     * Set channel's id.
+     * @param id
+     */
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    /**
      * Indicates whether some other channel is "equal to" this one.
      * @param   o   the reference object with which to compare.
      * @return  {@code true} if this channel is the same as the o argument;
