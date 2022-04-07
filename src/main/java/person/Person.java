@@ -16,7 +16,7 @@ public class Person {
     private static int lastId = 0;
 
     @XmlAttribute
-    private final UUID id;
+    private UUID id;
     @XmlElement(name = "first_name")
     private String firstName;
     @XmlElement(name = "middle_name")
@@ -70,6 +70,10 @@ public class Person {
 
     public UUID getId() {
         return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getFirstName() {

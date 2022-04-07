@@ -53,12 +53,24 @@ public abstract class Contract {
     public Contract() {
     }
 
+    public ContractType getType() {
+        return type;
+    }
+
+    public void setType(ContractType type) {
+        this.type = type;
+    }
+
     /**
      * Get contract id.
      * @return UUID object that represents contract id.
      */
     public UUID getId() {
         return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     /**

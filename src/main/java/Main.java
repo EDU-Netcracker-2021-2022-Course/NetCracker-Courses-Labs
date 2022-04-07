@@ -12,8 +12,12 @@ public class Main {
 
         dbRepo.saveRepo(initialRepository);
 
-        ContractRepository restoredRepoFromDB = new ContractRepository();
+        ContractRepository restoredRepoFromDB = dbRepo.restoreRepoFromDB();
 
-        restoredRepoFromDB.addAll(dbRepo.restoreRepoFromDB());
+
+        System.out.println("\nInitial repository:\n" + initialRepository);
+
+
+        System.out.println("\nRestored repository from DB:\n" + restoredRepoFromDB);
     }
 }
