@@ -74,11 +74,11 @@ public class ContractDataCSVReader implements IReadable {
                     break;
             }
 
-            if(contractValidator.validate(contract).getStatus().equals("ok")) {
-                repo.add(contract);
-            } else {
-                LoggerFactory.getLogger("Contract validatior").error("Contract " + contract + " didn't pass validation");
-            }
+//            if(contractValidator.validate(contract).getStatus().equals("ok")) {
+//                repo.add(contract);
+//            } else {
+//                LoggerFactory.getLogger("Contract validatior").error("Contract " + contract + " didn't pass validation");
+//            }
 
             repo.add(contract);
         }

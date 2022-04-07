@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<repository id="bb964f19-c45f-4907-9d74-2eb891ccd9f6">
+<repository id="219dc1bd-8177-4236-b0e1-d91a24c46810">
     <contracts>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="baf6a54c-d343-4521-8c9b-291c4f14dc58" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="5ace5539-e9c0-485a-ad00-6e73f47f3734" type="MOBILE">
             <contract_number>67574280</contract_number>
-            <contract_owner id="69ded246-5969-48ea-afd5-1723a3765f14">
+            <contract_owner id="b931b899-19e9-4d71-abe9-888f10b427fe">
                 <first_name>Зинаида</first_name>
                 <middle_name>Кольцова</middle_name>
                 <lastname_name>Мефодиевна</lastname_name>
@@ -19,9 +19,9 @@
             <contract_messages_count>50</contract_messages_count>
             <contract_traffic_total>5</contract_traffic_total>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="e2ac0f43-28b9-4af0-88c7-dfbd4c14a229" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="76b00f9b-e9aa-4a12-8edd-6986714e79b1" type="MOBILE">
             <contract_number>55103970</contract_number>
-            <contract_owner id="a4402de5-741c-418b-a70d-a9436c64a003">
+            <contract_owner id="6baaeab4-13c1-4fc0-8ce4-bd5c3fb09526">
                 <first_name>Татьяна</first_name>
                 <middle_name>Лукьянова</middle_name>
                 <lastname_name>Несторовна</lastname_name>
@@ -37,9 +37,9 @@
             <contract_messages_count>50</contract_messages_count>
             <contract_traffic_total>5</contract_traffic_total>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="e0f02198-5629-4c55-9f3d-ac5032cf50f0" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="7f5a13f5-eac9-4c31-92c3-b3a5a7db8609" type="TV">
             <contract_number>17185372</contract_number>
-            <contract_owner id="ef2b079b-87ff-4df5-b924-35f42ab8fe0b">
+            <contract_owner id="94d00aaa-d639-4479-a739-10b027a794b1">
                 <first_name>Варвара</first_name>
                 <middle_name>Щеголяева</middle_name>
                 <lastname_name>Константиновна</lastname_name>
@@ -52,23 +52,23 @@
             <starting_date>2019-04-24</starting_date>
             <ending_date>2022-02-10</ending_date>
             <channels>
-                <channel id="0620fc13-b122-4d4c-93a3-f2dc506ce97d">
+                <channel id="95417ebd-a5e9-4e74-b5cf-f9b74c4ae8b0">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="c1695d87-bc12-48ee-a2bd-08828e9c2498">
+                <channel id="dc080584-137a-4290-a97a-fdc1992477b8">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="06ca56d7-cc47-49c0-bcb7-f693c6d30757">
+                <channel id="ace776f1-b4d5-4a9d-915d-931d5ca5ca49">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="da8766c4-1cfe-4377-afc0-9da9825b4d02" type="WIRELINE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="832f10f6-b3ce-4f62-abe3-506f1bdc502d" type="WIRELINE">
             <contract_number>40917745</contract_number>
-            <contract_owner id="807b1a85-d063-4916-843e-e017a532775c">
+            <contract_owner id="2fce5291-6480-4696-abf2-7740a02dad66">
                 <first_name>Влада</first_name>
                 <middle_name>Челомеева</middle_name>
                 <lastname_name>Юлиевна</lastname_name>
@@ -82,9 +82,9 @@
             <ending_date>2023-07-12</ending_date>
             <connection_speed>100</connection_speed>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="a77bb42f-efdf-43fb-a74f-4215550fcde9" type="WIRELINE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="adbef1b4-a8f6-42e8-97bc-bf80ab08cd05" type="WIRELINE">
             <contract_number>81416899</contract_number>
-            <contract_owner id="f7d76f53-4046-4137-ba8f-a4e4c462f822">
+            <contract_owner id="bab2aec3-0de4-46a2-8ec8-f833f93ae59e">
                 <first_name>Христина</first_name>
                 <middle_name>Сиянскиха</middle_name>
                 <lastname_name>Евгениевна</lastname_name>
@@ -98,9 +98,9 @@
             <ending_date>2023-03-17</ending_date>
             <connection_speed>5</connection_speed>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="ac1578ff-32e6-4a7c-a784-71d154d89f70" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="fe84780f-8315-425c-b84e-d4c51250a124" type="MOBILE">
             <contract_number>82384756</contract_number>
-            <contract_owner id="5acfa4ca-db81-48aa-a4c5-94b16d8d9399">
+            <contract_owner id="2ae525b3-059e-4241-9d4f-fd7a55e830ca">
                 <first_name>Агата</first_name>
                 <middle_name>Ёлкина</middle_name>
                 <lastname_name>Потаповна</lastname_name>
@@ -116,9 +116,9 @@
             <contract_messages_count>50</contract_messages_count>
             <contract_traffic_total>5</contract_traffic_total>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="f03d34d2-1f2a-4077-9e76-5c87d65a8019" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="fb667991-0de8-4013-b5c6-f1f698deedc6" type="TV">
             <contract_number>41711364</contract_number>
-            <contract_owner id="f2f4ba9c-8130-4104-8ec2-3160d1354a60">
+            <contract_owner id="38feecbb-33ca-4322-ba9d-cf9362d19660">
                 <first_name>Пахом</first_name>
                 <middle_name>Гречко</middle_name>
                 <lastname_name>Феликсович</lastname_name>
@@ -131,23 +131,23 @@
             <starting_date>2015-04-21</starting_date>
             <ending_date>2023-05-11</ending_date>
             <channels>
-                <channel id="5cf9625a-80fe-4652-a03b-2797a4d6823b">
+                <channel id="8cb8d114-0677-4bf2-bf66-7606e58c0d75">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="6f6788a3-b75f-4776-83b5-7e51bf4c20db">
+                <channel id="36afdbe5-49e8-4def-8859-56d5c9ecd1c4">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="50a21100-6295-4553-80f0-fcf09209fb67">
+                <channel id="f832c416-a847-448c-a609-1273a7f8f8a9">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="c74b1f5d-883e-4f1f-a6ff-b0a8aadef301" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="2eb69ae7-e70a-42f4-86a7-51c8c68de1c1" type="TV">
             <contract_number>57720372</contract_number>
-            <contract_owner id="e4f466ae-757f-4128-8dc3-208699b6f817">
+            <contract_owner id="5a66ea89-b606-4b2c-ba98-30373d84bed0">
                 <first_name>Анфиса</first_name>
                 <middle_name>Коченкова</middle_name>
                 <lastname_name>Якововна</lastname_name>
@@ -160,23 +160,23 @@
             <starting_date>2017-01-17</starting_date>
             <ending_date>2022-10-25</ending_date>
             <channels>
-                <channel id="0679e466-4530-4c0e-bc7b-5162e6a6bc89">
+                <channel id="d483ac1c-3f6f-43b7-b062-0b76aee66811">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="7de1c0b7-b2a4-4861-afa2-3b5869290ac4">
+                <channel id="a708c2f3-aad2-4c51-a77e-dcd6ae70f9a8">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="83941eb7-a19f-4119-aa17-aeac493b30ab">
+                <channel id="3b5c0df8-7d6a-4146-a0d3-9a7e5a2091f4">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="75934f13-b443-4e99-831b-27dc0dbe7c25" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="922e37e3-45b4-4765-b3a4-5a1333c20937" type="TV">
             <contract_number>45248032</contract_number>
-            <contract_owner id="1866d0d1-98d7-4251-be68-248a364e0eb5">
+            <contract_owner id="e327766a-e888-4aa2-b4b2-417cfafba324">
                 <first_name>Яна</first_name>
                 <middle_name>Мячина</middle_name>
                 <lastname_name>Семеновна</lastname_name>
@@ -189,23 +189,23 @@
             <starting_date>2021-05-05</starting_date>
             <ending_date>2023-04-21</ending_date>
             <channels>
-                <channel id="3da6bd5d-fb9c-4096-ad70-38ed9f765a98">
+                <channel id="27fb4433-4587-47f4-82b6-c95212ad3e6e">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="d2f79379-b610-4307-9f03-18959fa52633">
+                <channel id="4372b329-3da9-4e0d-a907-dafaf1db6ed7">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="19e7dca7-88c9-43e1-8f2a-ec0ece75901d">
+                <channel id="4586e0c3-a36f-43b5-9f94-0f32bfa28650">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="db2ac166-918d-478d-9220-c891c26a049f" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="6cb78017-4bed-489f-ae9a-c946579102fd" type="TV">
             <contract_number>22751272</contract_number>
-            <contract_owner id="73eed5f7-978a-42e6-97ea-bae262291154">
+            <contract_owner id="b8a4c94b-603b-42e1-83a6-cb4cc6e2224b">
                 <first_name>Давид</first_name>
                 <middle_name>Сочеванов</middle_name>
                 <lastname_name>Яковович</lastname_name>
@@ -218,23 +218,23 @@
             <starting_date>2019-04-25</starting_date>
             <ending_date>2022-08-29</ending_date>
             <channels>
-                <channel id="9de06922-018e-4b49-9fc8-7183277e2f76">
+                <channel id="eed2668c-8fde-46f9-a3a6-c9edf4f19030">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="4e494fe9-00b8-48a5-8d64-6704bde267ad">
+                <channel id="2e3c77bd-fef8-40fc-8c79-1a0e1586dfb5">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="7b3d55bd-a9d1-42f2-ba4b-7b6cf33bf826">
+                <channel id="db437876-ff55-457f-8c76-7365876e54dc">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="d125f1be-4696-48c2-bb2a-e0b521f2d356" type="WIRELINE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="e42f9ae0-d668-47d5-9656-c1e78a4fbe99" type="WIRELINE">
             <contract_number>98362626</contract_number>
-            <contract_owner id="8019930e-795a-45df-8234-635454f2a642">
+            <contract_owner id="fc04c788-cd04-4635-b7bb-9f2a65994656">
                 <first_name>Яна</first_name>
                 <middle_name>Панюшкина</middle_name>
                 <lastname_name>Святославовна</lastname_name>
@@ -248,9 +248,9 @@
             <ending_date>2022-02-14</ending_date>
             <connection_speed>25</connection_speed>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="03c6edd0-d869-4ff8-bc11-fb5d4e9ed311" type="WIRELINE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="8e12b479-31b3-4615-b105-f2b54f0af822" type="WIRELINE">
             <contract_number>87586479</contract_number>
-            <contract_owner id="eb601dcf-d364-4814-b464-22e09f4d831f">
+            <contract_owner id="a7e51e77-c048-4d59-ba5b-b51b4732c4cd">
                 <first_name>Ксения</first_name>
                 <middle_name>Емельянова</middle_name>
                 <lastname_name>Всеволодовна</lastname_name>
@@ -264,9 +264,9 @@
             <ending_date>2021-10-29</ending_date>
             <connection_speed>30</connection_speed>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="fcfee203-3f49-45b9-8cb3-f6dbe54ad419" type="WIRELINE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="e7d7b431-e1f4-4440-b416-b4993b2f19b6" type="WIRELINE">
             <contract_number>74318509</contract_number>
-            <contract_owner id="bb979d32-fe42-4838-884a-c9665c5ff618">
+            <contract_owner id="3459d871-0657-4921-aa9a-644c603320f4">
                 <first_name>Владислава</first_name>
                 <middle_name>Рязанова</middle_name>
                 <lastname_name>Емельяновна</lastname_name>
@@ -280,9 +280,9 @@
             <ending_date>2021-10-01</ending_date>
             <connection_speed>20</connection_speed>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="041763de-4972-4a6b-8809-ab27662dbca2" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="8eff89cb-7bf3-44df-bacd-14a28e6d9cde" type="TV">
             <contract_number>78356050</contract_number>
-            <contract_owner id="240ff6bf-7256-4829-9d9d-60381234f9af">
+            <contract_owner id="512b94b2-798f-46dc-b06f-0a868e73b171">
                 <first_name>Ираклий</first_name>
                 <middle_name>Сусоев</middle_name>
                 <lastname_name>Анатолиевич</lastname_name>
@@ -295,23 +295,23 @@
             <starting_date>2019-09-30</starting_date>
             <ending_date>2022-09-07</ending_date>
             <channels>
-                <channel id="546a6459-fd06-4472-9829-4622149403a4">
+                <channel id="b6b8b4d3-0939-45e1-8e1f-9d14540c17e3">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="35d00fef-9e8b-4ca2-8ea6-e66ff1a5318d">
+                <channel id="eda267db-1cb2-4f19-89f0-3001f96af06f">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="d3cbf1e6-65c5-40a6-b26b-78cbc0ecb807">
+                <channel id="62f5de4c-7890-4d97-aaed-4c0736a21025">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="94212abc-f0da-4c16-8401-9c7fd85147fe" type="WIRELINE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="12b336cf-36c8-430c-9c1a-fd6ff9c08b28" type="WIRELINE">
             <contract_number>26628884</contract_number>
-            <contract_owner id="652e3171-ea9f-4623-9238-037a61dc0cc0">
+            <contract_owner id="517d6eb4-e46c-46da-9709-c01b65a72669">
                 <first_name>Владлена</first_name>
                 <middle_name>Лигачёва</middle_name>
                 <lastname_name>Василиевна</lastname_name>
@@ -325,9 +325,9 @@
             <ending_date>2021-10-15</ending_date>
             <connection_speed>70</connection_speed>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="4c88db93-8154-427b-b3fb-3c52657775d4" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="7c170936-768e-4089-aabb-14c2f68b5406" type="MOBILE">
             <contract_number>55880477</contract_number>
-            <contract_owner id="c2f06374-f7fb-46b1-b735-4094ca25bea1">
+            <contract_owner id="69ed9b1a-237f-4ddd-94f9-4c06da944e02">
                 <first_name>Алиса</first_name>
                 <middle_name>Жутова</middle_name>
                 <lastname_name>Николаевна</lastname_name>
@@ -343,9 +343,9 @@
             <contract_messages_count>50</contract_messages_count>
             <contract_traffic_total>5</contract_traffic_total>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="d4f7f994-6c02-405e-97ba-814a110aec19" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="8905dee1-d08b-403b-908b-7ee24656dd94" type="MOBILE">
             <contract_number>91824898</contract_number>
-            <contract_owner id="f678f867-4ec4-493b-88b1-ba595bfd42e5">
+            <contract_owner id="6f0dc121-1496-4649-adf8-dd503c9aa044">
                 <first_name>Зиновий</first_name>
                 <middle_name>Николаенко</middle_name>
                 <lastname_name>Сократович</lastname_name>
@@ -361,9 +361,9 @@
             <contract_messages_count>50</contract_messages_count>
             <contract_traffic_total>5</contract_traffic_total>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="bc9fd57a-2cef-4dda-866e-893ba2afe149" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="224e203e-599d-4255-9326-d0ddb80e5f5e" type="MOBILE">
             <contract_number>24220195</contract_number>
-            <contract_owner id="45a8e791-078c-49a7-aa1f-8d1ead28eace">
+            <contract_owner id="6279c1d5-e47b-4a9f-8e8b-b0e704852fe3">
                 <first_name>Инга</first_name>
                 <middle_name>Пьянкова</middle_name>
                 <lastname_name>Андрияновна</lastname_name>
@@ -379,9 +379,9 @@
             <contract_messages_count>50</contract_messages_count>
             <contract_traffic_total>5</contract_traffic_total>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="40fb7227-29b5-4e03-bfd6-fdbf42e7888f" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="9dbb4855-d25a-4c73-9d9a-12467fb2855b" type="TV">
             <contract_number>12646822</contract_number>
-            <contract_owner id="65e3738e-1a50-44f9-a1f1-bdb4ae7c3f53">
+            <contract_owner id="ead28203-a716-4c96-a862-5e18a1a09c25">
                 <first_name>Розалия</first_name>
                 <middle_name>Тамаркина</middle_name>
                 <lastname_name>Казимировна</lastname_name>
@@ -394,23 +394,23 @@
             <starting_date>2015-01-19</starting_date>
             <ending_date>2022-11-16</ending_date>
             <channels>
-                <channel id="6bc80f45-9b6c-4706-b8de-db04b8a72e8b">
+                <channel id="f573fa75-63c5-400e-acea-f1925c103e07">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="0f8d668a-88cc-4f66-8272-b71ec12f5241">
+                <channel id="7b1833d1-f1f7-4309-839b-0a89ebeb5717">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="7cf45475-c089-4d41-bb76-c0df72045e28">
+                <channel id="9d4efc30-3b06-4099-824c-66f4babbc02c">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="1b0c190b-f3e5-43f8-9211-2391746e6cd6" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="ed0e410a-c2f7-426e-96a6-d00cbd2b706d" type="MOBILE">
             <contract_number>80196659</contract_number>
-            <contract_owner id="613f388f-1d9c-45f6-a147-b313bfa9651f">
+            <contract_owner id="1fcfced4-90b8-48aa-86c3-70fee29f5ac1">
                 <first_name>Злата</first_name>
                 <middle_name>Алистратова</middle_name>
                 <lastname_name>Ираклиевна</lastname_name>
@@ -426,9 +426,9 @@
             <contract_messages_count>50</contract_messages_count>
             <contract_traffic_total>5</contract_traffic_total>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="8dc899b5-944c-48ae-a6a1-308ede3c274a" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="2a4f4d73-9c04-48f6-87f4-78b91bc10983" type="TV">
             <contract_number>96734938</contract_number>
-            <contract_owner id="bf6717e6-91d3-42fd-9b08-aa5d5ab13865">
+            <contract_owner id="b73338a6-26dd-4c5a-b773-731fa561318e">
                 <first_name>Никифор</first_name>
                 <middle_name>Ростов</middle_name>
                 <lastname_name>Игнатиевич</lastname_name>
@@ -441,23 +441,23 @@
             <starting_date>2019-05-08</starting_date>
             <ending_date>2022-08-17</ending_date>
             <channels>
-                <channel id="d57db803-4897-4063-9bb9-124104756fca">
+                <channel id="aa8ee764-7146-49ff-ad95-264a15c4dc3a">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="1daa1161-e4b4-4d07-847c-f0ccf21a544d">
+                <channel id="136a1476-ed63-4f48-9528-49780f18e7d0">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="09754228-e45b-4914-8d9e-f8b8d1ee2560">
+                <channel id="49710799-3a75-4496-939a-8c19bb8ba0ba">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="edd6a6b6-b9ec-491a-83ab-07298c30b2d5" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="5ca0a5d2-9e70-466e-b560-f8061defc8d1" type="MOBILE">
             <contract_number>72636248</contract_number>
-            <contract_owner id="af0bc1e1-e094-412b-84ce-9a6c8f24a173">
+            <contract_owner id="e0430ee0-d7d9-40e4-a893-3c7f87ca90d2">
                 <first_name>Кристина</first_name>
                 <middle_name>Белорусова</middle_name>
                 <lastname_name>Ростиславовна</lastname_name>
@@ -473,9 +473,9 @@
             <contract_messages_count>50</contract_messages_count>
             <contract_traffic_total>5</contract_traffic_total>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="1ca0c11b-275a-4345-aea4-c5b36a675059" type="TV">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractTV" id="2cf2de47-2fe0-4281-9e0c-ca000e22f822" type="TV">
             <contract_number>79003394</contract_number>
-            <contract_owner id="9211a0f1-6b88-4148-85da-64bc9553249d">
+            <contract_owner id="54d9e3e6-9991-4143-af59-1c0c8c1f3fcf">
                 <first_name>Кир</first_name>
                 <middle_name>Покровский</middle_name>
                 <lastname_name>Тихонович</lastname_name>
@@ -488,23 +488,23 @@
             <starting_date>2015-11-09</starting_date>
             <ending_date>2022-04-08</ending_date>
             <channels>
-                <channel id="40212460-c711-4fe1-a845-7aba1591a9a0">
+                <channel id="38a758ef-e937-4478-8d2e-105ab3e9d2e8">
                     <name>Первый</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="2f8c59ed-98f1-4c50-b927-8e565ecc5349">
+                <channel id="71fc3936-ccae-42d1-82ff-1caf9496be8c">
                     <name>Россия</name>
                     <siteAddress></siteAddress>
                 </channel>
-                <channel id="d7600ae3-d82a-4bcc-bfd2-0cecd5ffca76">
+                <channel id="b1e54d5f-f3f0-4862-9576-7ec730ce04d6">
                     <name>СТС</name>
                     <siteAddress></siteAddress>
                 </channel>
             </channels>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="e99dbbe5-cfbb-4dca-9f4d-3d6a297e8dbf" type="WIRELINE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractWireLine" id="a7271b74-2561-48a4-a13c-e02630b90a91" type="WIRELINE">
             <contract_number>27729704</contract_number>
-            <contract_owner id="d2764d47-3b3a-413c-8d7f-fb84069db489">
+            <contract_owner id="1b7ddab1-26f7-4d0a-aeb7-294f41cffa35">
                 <first_name>Никон</first_name>
                 <middle_name>Фоменков</middle_name>
                 <lastname_name>Григориевич</lastname_name>
@@ -518,9 +518,9 @@
             <ending_date>2023-07-03</ending_date>
             <connection_speed>55</connection_speed>
         </contract>
-        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="2b5d036b-48a2-4cba-8348-bde7dc7bba11" type="MOBILE">
+        <contract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="contractMobile" id="eb0adf06-c5ac-4070-81d1-046b5f416a34" type="MOBILE">
             <contract_number>41437396</contract_number>
-            <contract_owner id="3860d914-db6a-4225-b261-59d7420696a4">
+            <contract_owner id="83afaf78-4b10-43ec-9056-dc54f9338f64">
                 <first_name>Юлий</first_name>
                 <middle_name>Шкловский</middle_name>
                 <lastname_name>Карлович</lastname_name>
