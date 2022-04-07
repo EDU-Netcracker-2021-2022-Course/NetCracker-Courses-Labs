@@ -10,12 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import person.Person;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 public class DbRepository {
@@ -36,75 +32,61 @@ public class DbRepository {
             user = props.getProperty("datasource.user");
             password = props.getProperty("datasource.password");
             driver = props.getProperty("spring.datasource.driverClassName");
-
-            createTables();
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             LOGGER.error("Error to read data from database.properties", e);
         }
     }
 
-    private void createTables() {
+    private void createTables(Connection connection) {
         try {
             Class.forName(driver);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
-        try (Connection connection = DriverManager.getConnection(url, user, password)) {
-            System.out.println("Database was created.");
+        try {
             Statement statementCreatePersonTable = connection.createStatement();
             Statement statementCreateContractTable = connection.createStatement();
-            Statement statementShowTables = connection.createStatement();
+            Statement dropContractTablest = connection.createStatement();
+            Statement dropPersonTablest = connection.createStatement();
 
-            String createPersonTable =
-                    "CREATE MEMORY TABLE IF NOT EXISTS person (" +
-                            "id              VARCHAR(255) PRIMARY KEY," +
-                            "first_name      VARCHAR(255)," +
-                            "middle_name     VARCHAR(255)," +
-                            "last_name       VARCHAR(255)," +
-                            "birth_date      VARCHAR(255)," +
-                            "passport_series INT," +
-                            "passport_number INT," +
-                            "age             INT," +
-                            "sex             VARCHAR(255))";
+            String dropPersonTable = "DROP TABLE IF EXISTS PUBLIC.PERSON CASCADE";
+            String dropContractTable = "DROP TABLE IF EXISTS PUBLIC.CONTRACT CASCADE";
+
+            String createPersonTable = "CREATE TABLE PUBLIC.PERSON (id INTEGER not NULL,first_name VARCHAR,middle_name VARCHAR,last_name VARCHAR,birth_date VARCHAR,passport_series INT,passport_number INT,age INT,sex VARCHAR, PRIMARY KEY ( id ))";
 
             String createContractTable =
-                    "CREATE MEMORY TABLE IF NOT EXISTS contract (" +
-                            "id              varchar(255) PRIMARY KEY NOT NULL," +
-                            "starting_date   VARCHAR(255)," +
-                            "ending_date     VARCHAR(255)," +
+                    "CREATE TABLE PUBLIC.CONTRACT (" +
+                            "id              INTEGER not NULL," +
+                            "starting_date   VARCHAR," +
+                            "ending_date     VARCHAR," +
                             "contract_number INT," +
-                            "contract_owner  VARCHAR(255)," +
-//                            "FOREIGN KEY (contract_owner) REFERENCES PERSON," +
-                            "contract_type   VARCHAR(255)," +
-                            "additional_info VARCHAR(255))";
+                            "contract_owner  VARCHAR," +
+                            "FOREIGN KEY (contract_owner) REFERENCES PUBLIC.PERSON," +
+                            "contract_type   VARCHAR," +
+                            "additional_info VARCHAR," +
+                            "PRIMARY KEY ( id ))";
 
-            String showTables = "SHOW TABLES";
-
+            dropPersonTablest.executeUpdate(dropPersonTable);
+            dropContractTablest.executeUpdate(dropContractTable);
             statementCreateContractTable.executeUpdate(createContractTable);
             statementCreatePersonTable.executeUpdate(createPersonTable);
-            statementShowTables.execute(showTables);
 
             LOGGER.info("Tables were created!");
         } catch (Exception e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Error: " + e.getMessage());
         }
     }
 
     public void saveRepo(ContractRepository repo) {
-        try {
+        try (Connection connection = DriverManager.getConnection(url, user, password);) {
             Class.forName(driver);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        try (Connection connection = DriverManager.getConnection(url, user, password)) {
             PreparedStatement preparedStatementRepo = connection.
-                    prepareStatement("INSERT INTO contract (id,starting_date,ending_date,contract_number," +
+                    prepareStatement("INSERT INTO CONTRACT (id,starting_date,ending_date,contract_number," +
                             "contract_owner,contract_type, additional_info)" +
                             "VALUES(?,?,?,?,?,?,?);");
 
             PreparedStatement preparedStatementPerson = connection.
-                    prepareStatement("INSERT INTO person (id, first_name, middle_name, last_name," +
+                    prepareStatement("INSERT INTO PERSON (id, first_name, middle_name, last_name," +
                             "birth_date, passport_series, passport_number, age, sex)" +
                             "VALUES(?,?,?,?,?,?,?,?,?)");
 
@@ -112,7 +94,19 @@ public class DbRepository {
                 Contract contract = repo.get(i);
                 Person owner = contract.getOwner();
 
-                preparedStatementRepo.setString(1, contract.getId().toString());
+                preparedStatementPerson.setString(1, owner.getId().toString());
+                preparedStatementPerson.setString(2, owner.getFirstName());
+                preparedStatementPerson.setString(3, owner.getMiddleName());
+                preparedStatementPerson.setString(4, owner.getLastName());
+                preparedStatementPerson.setString(5, owner.getBirthDate().toString());
+                preparedStatementPerson.setInt(6, owner.getPassportSeries());
+                preparedStatementPerson.setInt(7, owner.getPassportNumber());
+                preparedStatementPerson.setInt(8, owner.getAge());
+                preparedStatementPerson.setString(9, owner.getSex().toString());
+                preparedStatementPerson.executeUpdate();
+                LOGGER.info("Persons were saved");
+
+                preparedStatementRepo.setInt(1, i + 1);
                 preparedStatementRepo.setString(2, contract.getStartingDate().toString());
                 preparedStatementRepo.setString(3, contract.getEndingDate().toString());
                 preparedStatementRepo.setInt(4, contract.getNumber());
@@ -133,26 +127,13 @@ public class DbRepository {
 
                 preparedStatementRepo.executeUpdate();
                 LOGGER.info("Contracts were saved");
-
-                preparedStatementPerson.setString(1, owner.getId().toString());
-                preparedStatementPerson.setString(2, owner.getFirstName());
-                preparedStatementPerson.setString(3, owner.getMiddleName());
-                preparedStatementPerson.setString(4, owner.getLastName());
-                preparedStatementPerson.setString(5, owner.getBirthDate().toString());
-                preparedStatementPerson.setInt(6, owner.getPassportSeries());
-                preparedStatementPerson.setInt(7, owner.getPassportNumber());
-                preparedStatementPerson.setInt(8, owner.getAge());
-                preparedStatementPerson.setString(9, owner.getSex().toString());
-
-                preparedStatementPerson.executeUpdate();
-                LOGGER.info("Persons were saved");
             }
         } catch (Exception e) {
             LOGGER.error("Cannot connect to database", e);
         }
     }
 
-    public ContractRepository restoreRepoFromDB() {
+    public Contract[] restoreRepoFromDB() {
 
         return null;
     }
