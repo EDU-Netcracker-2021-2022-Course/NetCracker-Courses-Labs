@@ -14,7 +14,6 @@ public class Main {
 
         ContractRepository restoredRepoFromDB = dbRepo.restoreRepoFromDB();
 
-
         System.out.println("\nInitial repository:\n" + initialRepository);
 
 

@@ -21,7 +21,6 @@ import java.util.UUID;
 public class DbRepository {
 
     private final Logger LOGGER = LoggerFactory.getLogger(String.valueOf(DbRepository.class));
-
     private String url;
     private String user;
     private String password;
@@ -35,13 +34,60 @@ public class DbRepository {
             user = props.getProperty("datasource.user");
             password = props.getProperty("datasource.password");
             driver = props.getProperty("spring.datasource.driverClassName");
+            createTables();
         } catch (Exception e) {
             LOGGER.error("Error to read data from database.properties", e);
         }
     }
 
+    private void createTables() {
+        try (Connection connection = DriverManager.getConnection(url, user, password)) {
+            Class.forName(driver);
+
+            PreparedStatement dropPersonTableSt =
+                    connection.prepareStatement("DROP TABLE IF EXISTS PUBLIC.PERSON CASCADE");
+
+            PreparedStatement dropContractTableSt =
+                    connection.prepareStatement("DROP TABLE IF EXISTS PUBLIC.CONTRACT CASCADE");
+
+            PreparedStatement createPersonTableSt =
+                    connection.prepareStatement(
+                            "CREATE TABLE IF NOT EXISTS PUBLIC.PERSON ( " +
+                                    "id              VARCHAR PRIMARY KEY NOT NULL, " +
+                                    "first_name      VARCHAR, " +
+                                    "middle_name     VARCHAR, " +
+                                    "last_name       VARCHAR, " +
+                                    "birth_date      VARCHAR, " +
+                                    "passport_series INT, " +
+                                    "passport_number INT, " +
+                                    "age             INT, " +
+                                    "sex             VARCHAR)");
+
+            PreparedStatement createContractTableSt =
+                    connection.prepareStatement(
+                            "CREATE TABLE IF NOT EXISTS PUBLIC.CONTRACT (" +
+                                    "id VARCHAR PRIMARY KEY NOT NULL," +
+                                    "starting_date VARCHAR," +
+                                    "ending_date VARCHAR," +
+                                    "contract_number INT," +
+                                    "contract_owner VARCHAR," +
+                                    "FOREIGN KEY (contract_owner) REFERENCES PUBLIC.PERSON," +
+                                    "contract_type VARCHAR," +
+                                    "additional_info VARCHAR)");
+
+            dropPersonTableSt.executeUpdate();
+            dropContractTableSt.executeUpdate();
+            createPersonTableSt.executeUpdate();
+            createContractTableSt.executeUpdate();
+
+            LOGGER.info("Tables were created!");
+        } catch (Exception e) {
+            LOGGER.error("Error: " + e.getMessage());
+        }
+    }
+
     public void saveRepo(ContractRepository repo) {
-        try (Connection connection = DriverManager.getConnection(url, user, password);) {
+        try (Connection connection = DriverManager.getConnection(url, user, password)) {
             Class.forName(driver);
             PreparedStatement preparedStatementRepo = connection.prepareStatement("INSERT INTO CONTRACT (id,starting_date,ending_date,contract_number," + "contract_owner,contract_type, additional_info)" + "VALUES(?,?,?,?,?,?,?);");
 
@@ -63,7 +109,7 @@ public class DbRepository {
                 preparedStatementPerson.executeUpdate();
                 LOGGER.info("Persons were saved");
 
-                preparedStatementRepo.setInt(1, i + 1);
+                preparedStatementRepo.setString(1, contract.getId().toString());
                 preparedStatementRepo.setString(2, contract.getStartingDate().toString());
                 preparedStatementRepo.setString(3, contract.getEndingDate().toString());
                 preparedStatementRepo.setInt(4, contract.getNumber());
@@ -101,42 +147,26 @@ public class DbRepository {
             ResultSet resultSetPersons = statementPerson.executeQuery();
             ResultSet resultSetContracts = statementContract.executeQuery();
 
-            while(resultSetContracts.next()){
-                for (int i = 1; i <= resultSetContracts.getMetaData().getColumnCount(); i++){
-                    System.out.print(resultSetContracts.getString(i) + "\t");
-                }
-                System.out.println();
-            }
-
-            Person person = new Person();
-
-
             while (resultSetContracts.next()) {
-                System.out.println("мы в циклеs");
+                Person person = new Person();
                 Contract contract = null;
                 String contractType = resultSetContracts.getString(6);
 
-                switch (contractType) {
-                    case "MOBILE" :
-                        contract = new ContractMobile();
-                        contract.setType(ContractType.MOBILE);
-                        String[] additionalInfo = resultSetContracts.getString(7).split(", ");
-                        ((ContractMobile) contract).setMessagesTotal((short) Integer.parseInt(additionalInfo[1]));
-                        ((ContractMobile) contract).setMinutesTotal((short) Integer.parseInt(additionalInfo[2]));
-                        ((ContractMobile) contract).setTrafficTotal((short) Integer.parseInt(additionalInfo[3]));
-                        break;
-
-                    case "WIRELINE":
-                        contract = new ContractWireLine();
-                        contract.setType(ContractType.WIRELINE);
-                        ((ContractWireLine) contract).setConnectionSpeed(Integer.parseInt(resultSetContracts.getString(7)));
-                        break;
-
-                    case "TV":
-                        contract = new ContractTV();
-                        contract.setType(ContractType.TV);
-                        ((ContractTV) contract).setChannelsPackage(new ArrayList<>());
-                        break;
+                if (contractType.equals("MOBILE")) {
+                    contract = new ContractMobile();
+                    contract.setType(ContractType.MOBILE);
+                    String[] additionalInfo = resultSetContracts.getString(7).split(", ");
+                    ((ContractMobile) contract).setMessagesTotal((short) Integer.parseInt(additionalInfo[0]));
+                    ((ContractMobile) contract).setMinutesTotal((short) Integer.parseInt(additionalInfo[1]));
+                    ((ContractMobile) contract).setTrafficTotal((short) Integer.parseInt(additionalInfo[2]));
+                } else if (contractType.equals("WIRELINE")) {
+                    contract = new ContractWireLine();
+                    contract.setType(ContractType.WIRELINE);
+                    ((ContractWireLine) contract).setConnectionSpeed(Integer.parseInt(resultSetContracts.getString(7)));
+                } else if (contractType.equals("TV")) {
+                    contract = new ContractTV();
+                    contract.setType(ContractType.TV);
+                    ((ContractTV) contract).setChannelsPackage(new ArrayList<>());
                 }
 
                 contract.setId(UUID.fromString(resultSetContracts.getString(1)));
@@ -159,8 +189,7 @@ public class DbRepository {
                         person.setSex(Sex.valueOf(resultSetPersons.getString(9)));
 
                         contract.setOwner(person);
-                    } else {
-                        contract.setOwner(null);
+                        break;
                     }
                 }
 
